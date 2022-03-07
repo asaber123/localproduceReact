@@ -1,0 +1,32 @@
+@import "./variables.scss";
+
+//Mixins
+@mixin small-phone {
+    @media (max-width: 520px) {
+      @content;
+    }
+  }
+  
+  @mixin phone {
+    @media (max-width: 750px) {
+      @content;
+    }
+  }
+  @mixin tablet {
+    @media (max-width: 1100px) {
+      @content;
+    }
+  }
+
+
+*{
+    box-sizing: border-box;
+    margin:0;
+}
+#root{
+    height: 100%;
+}
+body{
+    font-family:$navbar-font;
+    width: 100%;
+}
