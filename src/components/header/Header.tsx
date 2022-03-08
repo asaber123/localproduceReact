@@ -1,5 +1,6 @@
 import React from 'react';
 import {useState} from 'react';
+import { Link } from 'react-router-dom';
 
 import { BiMenu } from 'react-icons/bi';
 import { AiOutlineClose } from 'react-icons/ai';
@@ -17,12 +18,10 @@ const Header = () => {
 
                 <nav className={`nav ${menuOpen? "isMenu" :""}`}>
                     <ul>
-                        <li>
-                            <a href="/">Seach produce</a>
-                        </li>
-                        <li>
-                            <a href="/">Page two</a>
-                        </li>
+                    <Link to='/s' >
+                            <li>Seach produce</li>
+                    </Link>
+
 
                     </ul>
                 </nav>

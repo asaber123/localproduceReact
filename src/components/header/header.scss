@@ -1,5 +1,5 @@
 //Importing variables
-@import "./variables.scss";
+@import "../../styles/variables";
 
 
 .header{
@@ -26,8 +26,8 @@
         }
         .nav{
             position: absolute;
+            right: 40%;
             
-   
             @include phone{
                 display: flex;
                 flex-direction: column;
@@ -45,12 +45,13 @@
                 }
     
             ul{
+
                 list-style: none;
                 display: flex;
                 flex-direction: row;
+                justify-content: flex-end;
                 align-items: center;
                 color: black;
-                justify-content: space-between;
                 font-size: 1.2em;
                 padding: 0;
 
