@@ -3,13 +3,14 @@
 
 
 .header{
-    background-color: $dark;
-    height: 100px;
+    background-color: $dark-green;
+    height: 10vh;
     width: 100%;
     margin: 0;
+    z-index: 100;
 
     .content{
-        color: $light;
+        color: $light-green;
         margin:0, auto;
         max-width: 1920px;
         height: 100%;
@@ -70,7 +71,7 @@
                 }
                 a{
                     text-decoration: none;
-                    color: $light;
+                    color: $light-green;
                     
 
                 }
@@ -98,7 +99,7 @@
             transition: 0,3s ease all;
             position: relative;
             &:hover{
-                color: $primary;
+                color:white;
             }
         }
     }

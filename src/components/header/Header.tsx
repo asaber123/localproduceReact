@@ -1,11 +1,11 @@
 import React from 'react';
 import {useState} from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 import { BiMenu } from 'react-icons/bi';
 import { AiOutlineClose } from 'react-icons/ai';
 
-const Header = () => {
+export const Header = () => {
     const [menuOpen, setMenuOpen] = useState(true);
     const menuTogglehandler = () =>{
         setMenuOpen((p) =>!p);
@@ -18,9 +18,9 @@ const Header = () => {
 
                 <nav className={`nav ${menuOpen? "isMenu" :""}`}>
                     <ul>
-                    <Link to='/s' >
+                    {/* <Link to='/search' >
                             <li>Seach produce</li>
-                    </Link>
+                    </Link> */}
 
 
                     </ul>
@@ -37,4 +37,3 @@ const Header = () => {
     );
 };
 
-export default Header

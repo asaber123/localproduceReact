@@ -1,20 +1,19 @@
-import { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'; 
-import Header from './components/header/Header';
-import Home from './pages/home/Home';
-import Search from './pages/search/Search';
+//import { useState } from 'react';
+// import { Routes } from 'react-router';
+// import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Header } from './components/header/Header';
+import { Home } from './pages/home/Home';
+import { Search } from './pages/search/Search';
 
-function App() {
+const App = () => {
   return (
-    <Router>
+    <div>
       <Header />
-      <Switch>
-        <Route path="/"> <Home/></Route>
-        <Route path="/search"> <Search/></Route>
-      </Switch>
-    </Router>
-
+      <Home />
+      <Search />
+    </div>
   );
-}
+
+};
 
 export default App;

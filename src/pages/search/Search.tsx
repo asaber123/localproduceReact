@@ -1,10 +1,22 @@
 import * as React from "react";
 import {useHistory} from "react-router-dom";
 
-function Search () {
+export function Search () {
+    const getProduce = async () => {
+        const response = await fetch(
+          "https://localhost:7247/api/apiproduce",{
+          method: "GET",
+          headers: {'Content-Type': 'application/json'}
+        });
+        const data = await response.json();
+      };
+      console.log(getProduce());
+
     return(
-        <h1>Search!</h1>
+        <div>
+
+            
+        </div>
     );
 
 }
-export default Search;
