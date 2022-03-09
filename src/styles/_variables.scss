@@ -38,3 +38,20 @@ $spacing-large:32px;
 //Border 
 $borderRatuius:12px;
 $borderHeight:100px;
+
+//Mixins
+@mixin button($bgcolor){
+  padding-right: 7%;
+  padding-left: 7%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  font-size: 1.2em;
+  font-weight: bold;
+  background-color: $bgcolor;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  &:hover{
+    background-color: lighten( $bgcolor, 10% )
+  }
+}

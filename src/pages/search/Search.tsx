@@ -31,32 +31,41 @@ export function Search() {
     const [isSearch, setSearch] = useState("");
     const [isSearchPickup, setPickupSeatch] = useState("");
     const [isSearchProducer, setSearchProducer] = useState("");
-    
+    const [isSearchTheme, setSearchTheme] = useState("");
+
     const arr = data.reverse().filter((q) => {
         if (isSearch === "") {
-          return q;
+            return q;
         } else if (q.produceName.toLowerCase().includes(isSearch.toLowerCase())) {
-          return q;
+            return q;
         } else {
-          return "";
+            return "";
         }
-      }).filter((q) => {
+    }).filter((q) => {
         if (isSearchPickup === "") {
-          return q;
+            return q;
         } else if (q.pickupPlace.toLowerCase().includes(isSearchPickup.toLowerCase())) {
-          return q;
+            return q;
         } else {
-          return "";
+            return "";
         }
-      }).filter((q) => {
+    }).filter((q) => {
         if (isSearchProducer === "") {
-          return q;
+            return q;
         } else if (q.producerId.toString().includes(isSearchProducer)) {
-          return q;
+            return q;
         } else {
-          return "";
+            return "";
         }
-      }).map((produce => {
+    }).filter((q) => {
+        if (isSearchTheme === "") {
+            return q;
+        } else if (q.theme.toString().includes(isSearchTheme)) {
+            return q;
+        } else {
+            return "";
+        }
+    }).map((produce => {
         let item = "";
         for (let i = 0; i < producer.length; i++) {
             if (produce.producerId == producer[i].producerId) {
@@ -67,26 +76,40 @@ export function Search() {
 
         return (
 
-            <div className="produce-div">
-                <h3>{produce.produceName}</h3>
-                <p><b>Producer:</b> {item}</p>
-                <p><b>Price:</b> {produce.price}</p>
-                <p><b>Pickup Place: </b>{produce.pickupPlace}</p>
-                <p><b>Theme: </b>{produce.theme}</p>
-                <p><b>Description:</b> {produce.description}</p>
+            <div className="produce-div" id={produce.theme}>
+                <div className="products">
+                    <h3>{produce.produceName}</h3>
+                    <p><b>Producer:</b> {item}</p>
+                    <p><b>Price:</b> {produce.price}</p>
+                    <p><b>Pickup Place: </b>{produce.pickupPlace}</p>
+                    <p><b>Theme: </b>{produce.theme}</p>
+                    <p><b>Description:</b> {produce.description}</p>
+                </div>
+                <button>Order product</button>
             </div>
         );
     }));
 
     return (
         <div className="search">
-            <input type="text" onChange={(e)=>{setSearch(e.target.value)}} />
-            <select onChange={(e)=>{setSearchProducer(e.target.value)}}> <option> </option>{producer.map(e =>{
-               return(
+            <div className="search-alternative" >
+                <input className="search-field" placeholder="Search.." type="search" onChange={(e) => { setSearch(e.target.value) }} /> <br />
+                <select className="search-field" onChange={(e) => { setSearchProducer(e.target.value) }}> <option> Producer</option>{producer.map(e => {
+                    return (
 
-                 <option value={e.producerId}> {e.producerName} </option>)}
-            )
-            } </select> 
+                        <option value={e.producerId}> {e.producerName} </option>)
+                })
+                }
+                </select>
+                <select className="search-field" onChange={(e) => { setSearchTheme(e.target.value) }}> <option> Theme</option>{data.map(e => {
+
+                    return (
+
+                        <option value={e.theme}> {e.theme} </option>)
+                }
+                )
+                } </select>
+            </div>
             {arr}
         </div>
     );
