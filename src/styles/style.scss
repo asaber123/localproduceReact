@@ -1,6 +1,7 @@
 @import "./variables.scss";
 @import"../components/header/header.scss";
 @import"../pages/home/home.scss";
+@import"../pages/search/search.scss";
 //Mixins
 @mixin small-phone {
     @media (max-width: 520px) {
