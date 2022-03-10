@@ -72,13 +72,18 @@ export function Search() {
 
                 item = producer[i].producerName;
             }
+
         }
 
         return (
 
             <div className="produce-div" id={produce.theme}>
                 <div className="products">
+                    
+                    <div className="centered-div">
                     <h3>{produce.produceName}</h3>
+                    <img src={"https://localhost:7247/img/" + produce.imgName} alt="" />
+                    </div>
                     <p><b>Producer:</b> {item}</p>
                     <p><b>Price:</b> {produce.price}</p>
                     <p><b>Pickup Place: </b>{produce.pickupPlace}</p>
