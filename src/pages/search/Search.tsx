@@ -1,5 +1,7 @@
 ///import {useHistory} from "react-router-dom";
 import React, { useEffect, useState } from 'react';
+import { OrderForm } from '../../components/orderForm/OrderForm';
+
 
 
 export function Search() {
@@ -109,6 +111,7 @@ export function Search() {
                 </select>
             </div>
             {arr}
+            <OrderForm/>
         </div>
     );
 

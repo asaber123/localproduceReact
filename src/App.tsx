@@ -5,12 +5,15 @@ import { Header } from './components/header/Header';
 import { Home } from './pages/home/Home';
 import { Search } from './pages/search/Search';
 
+
 const App = () => {
   return (
     <div>
       <Header />
       <Home />
       <Search />
+
+    
     </div>
   );
 
