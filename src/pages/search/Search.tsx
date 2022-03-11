@@ -29,22 +29,14 @@ export function Search() {
     }, []);
 
     const [isSearch, setSearch] = useState("");
-    const [isSearchPickup, setPickupSeatch] = useState("");
+    //const [isSearchPickup, setPickupSeatch] = useState("");
     const [isSearchProducer, setSearchProducer] = useState("");
     const [isSearchTheme, setSearchTheme] = useState("");
 
     const arr = data.reverse().filter((q) => {
         if (isSearch === "") {
             return q;
-        } else if (q.produceName.toLowerCase().includes(isSearch.toLowerCase())) {
-            return q;
-        } else {
-            return "";
-        }
-    }).filter((q) => {
-        if (isSearchPickup === "") {
-            return q;
-        } else if (q.pickupPlace.toLowerCase().includes(isSearchPickup.toLowerCase())) {
+        } else if (q.produceName.toLowerCase().includes(isSearch.toLowerCase()) || q.pickupPlace.toLowerCase().includes(isSearch.toLowerCase())|| q.description.toLowerCase().includes(isSearch.toLowerCase())) {
             return q;
         } else {
             return "";
@@ -98,22 +90,23 @@ export function Search() {
     return (
         <div className="search">
             <div className="search-alternative" >
-                <input className="search-field" placeholder="Search.." type="search" onChange={(e) => { setSearch(e.target.value) }} /> <br />
-                <select className="search-field" onChange={(e) => { setSearchProducer(e.target.value) }}> <option> Producer</option>{producer.map(e => {
+                <input className="search-field" placeholder="Search.." type="search" onChange={(e) => { setSearch(e.target.value)}} /> <br />
+                <select className="search-field" onChange={(e) => { setSearchProducer(e.target.value) }}> <option value="">Choose producer</option>{producer.map(e => {
                     return (
-
+                            // TODO: filter so that it works
                         <option value={e.producerId}> {e.producerName} </option>)
                 })
                 }
                 </select>
-                <select className="search-field" onChange={(e) => { setSearchTheme(e.target.value) }}> <option> Theme</option>{data.map(e => {
-
-                    return (
-
-                        <option value={e.theme}> {e.theme} </option>)
-                }
-                )
-                } </select>
+                <select className="search-field" onChange={(e) => {setSearchTheme(e.target.value) }}> 
+                <option value="">Choose theme</option>
+                <option>Frukt och grönt</option>
+                    <option>Säd och gryn</option>
+                    <option>Mejeri</option>
+                    <option>Kött och chark</option>
+                    <option>Plantor och växter</option>
+                    <option>Sylt, saft och marmelad</option>
+                </select>
             </div>
             {arr}
         </div>
