@@ -1,8 +1,7 @@
 ///import {useHistory} from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 import { PerModuleNameCache } from 'typescript';
-import { OrderForm } from '../../components/orderForm/OrderForm';
-
+import{AiOutlineArrowLeft} from 'react-icons/ai';
 
 
 
@@ -16,6 +15,8 @@ export function Search() {
     const [customerName, setCustomerName] = useState<String>();
     const [phoneNumber, setPhoneNumber] = useState<Number>();
     const [produceId, setProduceId] = useState<Number>();
+    const [produceName, setProduceName] = useState<String>();
+    const [price, setPrice] = useState<Number>();
 
 
 
@@ -33,12 +34,14 @@ export function Search() {
             method: "POST",
             headers: { 'Content-Type': 'application/json' }
         })
-        .then((res) => res.json())
-        .then((data) => {
-            console.log(data)
-        })
-
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data)
+            })
+            
+        
         return response;
+       
     };
 
     React.useEffect(() => {
@@ -97,11 +100,11 @@ export function Search() {
 
                 item = producer[i].producerName;
             }
-
         }
 
         return (
-            <div className="produce-div" id={produce.theme}>
+            <div className="produce-div" id={produce.theme.replace(/ /g, '')} >
+                {console.log(produce.theme.replace(/ /g, ''))}
                 <div className="products">
 
                     <div className="centered-div">
@@ -113,36 +116,12 @@ export function Search() {
                     <p><b>Pickup Place: </b>{produce.pickupPlace}</p>
                     <p><b>Theme: </b>{produce.theme}</p>
                     <p><b>Description:</b> {produce.description}</p>
-                    <p>{produce.produceId}</p>
                 </div>
-                <div className={openForm ? "form-div-open" : "form-div-closed"}>
-                    {/* When submit button is clicked, then the onSubmit function will be activated. */}
-                    <form>
-
-                        <label>Name:
-                            {/* On all inputs, the function that is on the onchange will be started when the user starts filling the form */}
-                            {/* The value will be set to the state */}
-                            <input
-                                type="text"
-                                onChange={(e) => setCustomerName(e.target.value)} />
-                        </label>
-
-                        <label>Phone Number:
-                            {/* On all inputs, the function that is on the onchange will be started when the user starts filling the form */}
-                            {/* The value will be set to the state */}
-                            <input
-                                type="number"
-                                onChange={(e) => {setPhoneNumber(e.target.valueAsNumber); setProduceId(produce.produceId)}} />
-                        </label>
-
-
-                        <button onClick={() =>  orderProduce()}> Order</button>
-                    </form>
-                </div>
-                <button onClick={() => setOpenForm(!openForm)}>Order product</button>
+                <button onClick={() => { setOpenForm(!openForm); setProduceId(produce.produceId); setProduceName(produce.produceName); setPrice(produce.price) }}>Order product</button>
             </div>
         );
     }));
+
 
     return (
         <div className="search">
@@ -157,16 +136,56 @@ export function Search() {
                 </select>
                 <select className="search-field" onChange={(e) => { setSearchTheme(e.target.value) }}>
                     <option value="">Choose theme</option>
-                    <option>Frukt och grönt</option>
-                    <option>Säd och gryn</option>
-                    <option>Mejeri</option>
-                    <option>Kött och chark</option>
-                    <option>Plantor och växter</option>
-                    <option>Sylt, saft och marmelad</option>
+                    <option>Fruit and vegetables</option>
+                    <option>Eggs and dairy</option>
+                    <option>Meat</option>
+                    <option>Plants and seed</option>
+                    <option>Bread and bakery</option>
                 </select>
             </div>
+
+
+
             {arr}
-            <OrderForm />
+
+
+
+
+            <div className={openForm ? "form-div-open" : "form-div-closed"}>
+                <div className="order">
+                    <div className="info">
+                        <h3>{produceName}</h3>
+                        <h4>{price}:-</h4>
+                    </div>
+                    {/* When submit button is clicked, then the onSubmit function will be activated. */}
+                    <form>
+
+                        <label>Name: <br />
+                            {/* On all inputs, the function that is on the onchange will be started when the user starts filling the form */}
+                            {/* The value will be set to the state */}
+                            <input
+                                type="text"
+                                onChange={(e) => setCustomerName(e.target.value)} />
+                        </label>
+                        <br />
+
+                        <label>Phone: <br />
+                            {/* On all inputs, the function that is on the onchange will be started when the user starts filling the form */}
+                            {/* The value will be set to the state */}
+                            <input
+                                type="number"
+                                onChange={(e) => { setPhoneNumber(e.target.valueAsNumber); setProduceId(produceId) }} />
+                        </label>
+
+
+                        <button onClick={() => orderProduce()}> Order</button>
+                    </form>
+                    <p className="go-back" onClick={() => setOpenForm(!openForm)}><AiOutlineArrowLeft/>  Go back</p>
+                </div>
+
+            </div>
+
+
         </div>
     );
 
