@@ -127,7 +127,7 @@ export function Search() {
 
 
     return (
-        <div className="search">
+        <div className="search" id="search">
             <div className="search-alternative" >
                 <input className="search-field" placeholder="Search.." type="search" onChange={(e) => { setSearch(e.target.value) }} /> <br />
                 <select className="search-field" onChange={(e) => { setSearchProducer(e.target.value) }}> <option value="">Choose producer</option>{producer.map(e => {
