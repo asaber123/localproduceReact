@@ -1,7 +1,6 @@
 import * as React from "react";
-//import { useHistory } from "react-router-dom";
 
-
+// This is the  home section
 export function Home() {
     return (
         <section className="home" id="home">
