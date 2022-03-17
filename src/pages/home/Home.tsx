@@ -4,7 +4,7 @@ import * as React from "react";
 
 export function Home() {
     return (
-        <div className="home" id="home">
+        <section className="home" id="home">
             <div className="home-header">
                 <div className="black-div">
                     <h1>Your online local food delivery</h1>
@@ -12,7 +12,7 @@ export function Home() {
                 </div>
             </div>
             
-        </div>
+        </section>
     );
 
 }

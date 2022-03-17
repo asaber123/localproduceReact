@@ -1,8 +1,11 @@
+//This is the main styling file
+
 @import "./variables.scss";
 @import"../components/header/header.scss";
 @import"../pages/home/home.scss";
 @import"../pages/search/search.scss";
 @import"../pages/about/about.scss";
+@import"../components/footer/footer.scss";
 
 //Mixins
 @mixin small-phone {
@@ -26,6 +29,9 @@
 *{
     box-sizing: border-box;
     margin:0;
+}
+html{
+  scroll-behavior: smooth;
 }
 #root{
     height: 100%;

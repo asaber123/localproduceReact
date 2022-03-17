@@ -1,14 +1,30 @@
-.home-info{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    height: 100vh;
-    height: 90vh;
-    background-color: $dark-green-opacity;
+.about{
+
+    width: 100%;
+    min-height: 100vh;
+    background-color: $light-green;
+    .info-text{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 50%;
+        margin: auto;
+        text-align: center;
+        padding-bottom: 50px;
+        padding-top: 50px;
+    }
+    .steps{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        @include tablet{
+            flex-direction: column;
+        }
+    
     
     .step{
-        background-color:rgb(238, 233, 221);
+        background-color:$light-brown;
         width: 300px;
         height: 400px;
         margin-left: 20px;
@@ -18,6 +34,11 @@
         align-items: center;
         padding: 10px;
         border-radius: 15px;
+        text-align: center;
+        font-weight: 500;
+        @include tablet{
+            margin: 20px;
+        }
         
         .step-img{
             background-image: url(../../components/img/shop5.jpg);
@@ -32,4 +53,5 @@
             
         }
     }
+}
 }

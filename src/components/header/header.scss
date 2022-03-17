@@ -10,7 +10,7 @@
     z-index: 100;
 
     .content{
-        color: $light-green;
+        color: white;
         margin:0, auto;
         max-width: 1920px;
         height: 100%;
@@ -28,11 +28,12 @@
         .nav{
             position: absolute;
             right: 40%;
+            font-family: $navbar-font;
+            
             
             @include phone{
                 display: flex;
                 flex-direction: column;
-                
                 position: fixed;
                 left: 0;
                 top: 0;
@@ -40,9 +41,10 @@
                 height: 100vh;
                 align-items: center;
                 justify-content: center;
-                background: rgba(46, 97, 88, 0.719);
+                background: rgba(46, 97, 88, 0.89);
                 transform: translate(0);
                 transition: 0.6s ease transform;
+                z-index: 100;
                 }
     
             ul{
@@ -71,11 +73,11 @@
                 }
                 a{
                     text-decoration: none;
-                    color: $light-green;
-                    
-
+                    color: white;
+                    z-index: 110;
+                       
                 }
-                &:hover{
+                :hover{
                     color: white;
                 }
                 &:active{
@@ -84,15 +86,18 @@
             }
             &.isMenu{
                 transform: translate(100%);
+                z-index: 110;
             }
         }
         .toggle{
             display: none;
+            z-index: 110;
 
         @include phone{
             display: block;
              margin-right: 50px;
             cursor: pointer;
+            z-index: 110;
             display: flex;
             align-items: center;
             font-size: 2rem;

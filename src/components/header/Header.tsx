@@ -21,14 +21,6 @@ export const Header = () => {
                     <   li> <a href="#home">Home</a></li>  
                        <li> <a href="#search">Search produce</a></li>
                        <li> <a href="#about">About</a></li>
-                    {/* <Link to='/search' >
-                            <li>Seach produce</li>
-                    </Link>
-                    <Link to='/search' >
-                            <li>Seach produce</li>
-                    </Link> */}
-
-
                     </ul>
                 </nav>
                 <div className="toggle">

@@ -1,0 +1,17 @@
+//Importing variables
+@import "../../styles/variables";
+footer{
+    background-color: $dark-green;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 1%;
+    
+    a{
+        color: $light-brown;
+    }
+    :hover{
+        color: white;
+    }
+
+}

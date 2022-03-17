@@ -2,23 +2,29 @@
 
 export function About() {
     return (
-        <div className="home-info" id="about">
+        <section className="about" id="about">
+            <div className="info-text">
+                <h2>How does it work?</h2>
+                <p><b>Its all just about to keep it simple!</b></p> <br/>
+            </div>
+            <div className="steps">
             <div className="step">
                 <h2>Step 1</h2>
                 <div className="step-img"></div>
-                <p>Text</p>
+                <p>Find the produce you want to order online and look for a good pickup place</p>
             </div>
             <div className="step">
                 <h2>Step 2</h2>
                 <div className="step-img"></div>
-                <p>Text</p>
+                <p>Fill in your name and phonenumber to the product you want to order</p>
             </div>
             <div className="step">
                 <h2>Step 3</h2>
                 <div className="step-img"></div>
-                <p>Text</p>
+                <p>You will get a text message from the producer when and how the product can be picked up!</p>
             </div>
-        </div>
+            </div>
+        </section>
     );
 
 }

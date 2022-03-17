@@ -1,12 +1,12 @@
-//import { useState } from 'react';
-// import { Routes } from 'react-router';
-// import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import { Header } from './components/header/Header';
 import { About } from './pages/about/About';
 import { Home } from './pages/home/Home';
 import { Search } from './pages/search/Search';
+import {Footer} from './components/footer/Footer';
 
 
+//Here is all components/pages from making the one page web. 
 const App = () => {
   return (
     <div>
@@ -14,6 +14,7 @@ const App = () => {
       <Home />
       <About/>
       <Search />
+      <Footer/>
 
     
     </div>
