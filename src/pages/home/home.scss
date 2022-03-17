@@ -26,6 +26,9 @@
             width: 50%;
             border-radius: 20px;
             text-align: center;
+            @include phone{
+                display: none;
+            }
         }
     }
 
