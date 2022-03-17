@@ -18,6 +18,9 @@ export function Search() {
     const [produceName, setProduceName] = useState<String>();
     const [price, setPrice] = useState<Number>();
 
+    const publicURL = "https://localproduce.azurewebsites.net";
+    const localURL = "https://localhost:7247";
+
 
 
     async function orderProduce() {
@@ -29,7 +32,7 @@ export function Search() {
         console.log(customer);
 
 
-        const response = await fetch("https://localhost:7247/api/APIcustomer", {
+        const response = await fetch(`${publicURL}/api/APIcustomer`, {
             body: JSON.stringify(customer),
             method: "POST",
             headers: { 'Content-Type': 'application/json' }
@@ -46,7 +49,7 @@ export function Search() {
 
     React.useEffect(() => {
         const getProduce = async () => {
-            await fetch("https://localhost:7247/api/apiproduce")
+            await fetch(`${publicURL}/api/apiproduce`)
                 .then((res) => res.json())
                 .then((data) => {
                     setData(data);
@@ -57,7 +60,7 @@ export function Search() {
     }, []);
     React.useEffect(() => {
         const getProducer = async () => {
-            await fetch("https://localhost:7247/api/apiproducer")
+            await fetch(`${publicURL}/api/apiproducer`)
                 .then((res) => res.json())
                 .then((producer) => {
                     setProducer(producer);
@@ -109,7 +112,7 @@ export function Search() {
 
                     <div className="centered-div">
                         <h3>{produce.produceName}</h3>
-                        <img src={"https://localhost:7247/img/" + produce.imgName} alt="" />
+                        <img src={publicURL + "/img/" + produce.imgName} />
                     </div>
                     <p><b>Producer:</b> {item}</p>
                     <p><b>Price:</b> {produce.price}</p>
