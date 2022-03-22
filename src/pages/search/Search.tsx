@@ -33,9 +33,7 @@ export function Search() {
             phoneNumber: phoneNumber,
             produceId: produceId,
         });
-        console.log(customer);
-
-
+        console.log(customer)
         const response = await fetch(`${publicURL}/api/APIcustomer`, {
             body: JSON.stringify(customer),
             method: "POST",
@@ -45,15 +43,11 @@ export function Search() {
             .then((data) => {
                 console.log(data)
             })
-            
-
         return response;
-
-        
     };
 
     //Fetch request to get all the produce form the server
-    React.useEffect(() => {
+   useEffect(() => {
         const getProduce = async () => {
             await fetch(`${publicURL}/api/apiproduce`)
                 .then((res) => res.json())
@@ -65,7 +59,7 @@ export function Search() {
         getProduce();
     }, []);
     //fetching the data from producer to be able to compare producer id and producer id that is in the produce to show which user belongs wo wich produce. 
-    React.useEffect(() => {
+    useEffect(() => {
         const getProducer = async () => {
             await fetch(`${publicURL}/api/apiproducer`)
                 .then((res) => res.json())
@@ -83,7 +77,9 @@ export function Search() {
     const arr = data.reverse().filter((q) => {
         if (isSearch === "") {
             return q;
-        } else if (q.produceName.toLowerCase().includes(isSearch.toLowerCase()) || q.pickupPlace.toLowerCase().includes(isSearch.toLowerCase()) || q.description.toLowerCase().includes(isSearch.toLowerCase())) {
+        } else if (q.produceName.toLowerCase().includes(isSearch.toLowerCase()) ||
+         q.pickupPlace.toLowerCase().includes(isSearch.toLowerCase()) || 
+        q.description.toLowerCase().includes(isSearch.toLowerCase())) {
             return q;
         } else {
             return "";
@@ -150,7 +146,8 @@ return (
             <input className="search-field" placeholder="Search.." type="search" onChange={(e) => { setSearch(e.target.value) }} /> <br />
             <p>Select by..</p>
             {/* In the select box I'm mapping the producers name from the producer table to fill the select box so that it will automatically will be updated from the backend system */}
-            <select className="search-field" onChange={(e) => { setSearchProducer(e.target.value) }}> <option value="">Choose producer</option>{producer.map(e => {
+            <select className="search-field" onChange={(e) => { setSearchProducer(e.target.value) }}> 
+            <option value="">Choose producer</option>{producer.map(e => {
                 return (
                     
                     <option value={e.producerId}> {e.producerName} </option>)
